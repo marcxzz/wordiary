@@ -1,5 +1,23 @@
 @import "tailwindcss";
 
+body {
+  @apply text-left;
+}
+
 .card {
-  @apply dark:bg-gray-700 rounded-2xl p-4 max-w-max border border-gray-600;
+  @apply dark:bg-gray-700 rounded-2xl p-4 border border-gray-600;
+}
+.card-footer {
+  @apply dark:text-gray-400 text-sm font-medium uppercase;
+}
+
+section {
+  @apply mb-8;
+}
+
+h1 {
+  @apply text-xl font-semibold mb-4 font-serif;
+}
+h2 {
+  @apply text-lg font-medium mb-2;
 }
