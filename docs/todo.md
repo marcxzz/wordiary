@@ -3,7 +3,7 @@
 - create word details page
 
 # Medium priority
-- create much more words
 - create dictionary page
 
 # Low priority
+- sort recent words by date
