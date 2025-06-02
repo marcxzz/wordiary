@@ -1,1 +1,5 @@
 @import "tailwindcss";
+
+.card {
+  @apply dark:bg-gray-700 rounded-2xl p-4 max-w-max border border-gray-600;
+}
