@@ -1,18 +1,29 @@
 'use client'
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export default function Flashcard({ words }) {
   // console.log(words);
+  const [randomWord, setRandomWord] = useState('')
+  const [prevIndex, setPrevIndex] = useState(-1)
   
   const generateWord = () => {
-    return words[Math.floor(Math.random() * words.length)]
+    if (words.length < 2) return words[0]
+
+    const w = words[Math.floor(Math.random() * words.length)]
+    const index = words.findIndex(i => i == w)
+    console.log(prevIndex, index)
+
+    if (index == prevIndex) return generateWord()
+    
+    setPrevIndex(index)
+    return w
   }
-  const updateWord = () => {
-    setRandomWord(generateWord())
-  }
-  const [randomWord, setRandomWord] = useState(generateWord())
-  // console.log(randomWord);
+  const updateWord = () => setRandomWord(generateWord())
+  
+  useEffect(() => {
+    updateWord()
+  }, [])
   
   return (
     <div className="card shadow-md shadow-gray-700" onClick={updateWord}>
