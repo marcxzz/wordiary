@@ -43,7 +43,7 @@ export default function Search() {
           <></>
         ) : searchResults.length > 0 ? (
           <>
-            <h1>{searchResults.length} results for "{prevSearchQuery}"</h1>
+            <h1>{searchResults.length} results for &quot;{prevSearchQuery}&quot;</h1>
             <div className="flex flex-col gap-4">
               {searchResults.map(item => {
                 return (
@@ -59,7 +59,7 @@ export default function Search() {
             </div>
           </>
         ) : (
-          <p>No results for "{prevSearchQuery}"</p>
+          <p>No results for &quot;{prevSearchQuery}&quot;</p>
         )}
       </section>
     </div>
