@@ -1,9 +1,10 @@
 'use client'
 
+import WordCard from "@/components/common/WordCard"
 import { wordsList } from "@/utils/data"
 import { useState } from "react"
 
-export default function Search() {
+export default function WordsPage() {
   // console.log(wordsList)
   
   const [searchQuery, setSearchQuery] = useState('')
@@ -11,16 +12,16 @@ export default function Search() {
   const [prevSearchQuery, setPrevSearchQuery] = useState('')
 
   const search = () => {
-    setSearchQuery(document.getElementById('searchBar').value)
     // console.log(searchQuery)
     
     if (searchQuery != '') {
       const results = wordsList.filter((w) => w.word.includes(searchQuery))
       // console.log('res: ', results)
+      
       setPrevSearchQuery(searchQuery)
       return setSearchResults(results)
     }
-    setSearchResults([])
+    setSearchResults()
   }
 
   const handleTyping = (str) => {
@@ -40,26 +41,28 @@ export default function Search() {
 
       <section className="mt-8">
         {!searchResults ? (
-          <></>
+          <div className="flex flex-col gap-4">
+            {wordsList.map(item => {
+              return (
+                <WordCard word={item} key={item.id} showDate />
+              )
+            })}
+          </div>
         ) : searchResults.length > 0 ? (
           <>
-            <h1>{searchResults.length} results for &quot;{prevSearchQuery}&quot;</h1>
+            <h1 className="h1">{searchResults.length} results for &quot;{prevSearchQuery}&quot;</h1>
             <div className="flex flex-col gap-4">
               {searchResults.map(item => {
                 return (
-                  <a href={`/words/${item.id}`} key={item.id}>
-                    <div className="card w-full">
-                      <h2 className="font-serif italic">{item.word} <span className="card-footer not-italic! font-sans ml-4 mb-3">{item.fromLang} → {item.toLang}</span></h2>
-                      <p className="card-footer mb-3 normal-case!">{item.translation}</p>
-                      <p className="card-footer">{new Date(item.date * 1000).toLocaleDateString()}</p>
-                    </div>
-                  </a>
+                  <WordCard word={item} key={item.id} />
                 )
               })}
             </div>
           </>
         ) : (
-          <p>No results for &quot;{prevSearchQuery}&quot;</p>
+          <>
+            <p>No results for &quot;{prevSearchQuery}&quot;</p>
+          </>
         )}
       </section>
     </div>

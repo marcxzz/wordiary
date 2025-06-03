@@ -7,3 +7,4 @@
 
 # Low priority
 - sort recent words by date
+- use search query as URL param

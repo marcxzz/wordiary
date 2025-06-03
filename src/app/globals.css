@@ -18,9 +18,9 @@ section:last-of-type {
   @apply mb-0!;
 }
 
-h1 {
+.h1 {
   @apply text-xl font-semibold mb-4 font-serif;
 }
-h2 {
+.h2 {
   @apply text-lg font-medium mb-2;
 }
