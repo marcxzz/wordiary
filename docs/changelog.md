@@ -9,3 +9,8 @@
 ~ searching merged into /words page
 ~ searching feature improvements
 + created word details page
+
+## 08/06/2025
+~ improved /add page
++ added data access layer (DAL) for db operations (/data)
++ implemented home page data fetching from db

@@ -1,15 +1,20 @@
 import WordCard from "@/components/common/WordCard"
 import Flashcard from "@/components/home/Flashcard"
-import { dictionaries, wordsList } from "@/utils/data"
+import { getWords } from "@/data/words"
+// import { dictionaries, wordsList } from "@/utils/data"
 
-export default function Home() {
+export default async function Home() {
+  const words = await getWords()
+  console.log(await words)
+  
+
   return (
     <div>
       <section id="dailyFlashcard">
-        <Flashcard words={wordsList} />
+        <Flashcard words={words} />
       </section>
 
-      <section id="yourDictionaries">
+      {/* <section id="yourDictionaries">
         <h1 className="h1">Your dictionaries</h1>
 
         <div className="flex flex-row gap-4 overflow-x-auto">
@@ -22,13 +27,13 @@ export default function Home() {
             )
           })}
         </div>
-      </section>
+      </section> */}
 
       <section id="recentWords">
         <h1 className="h1">Recent words</h1>
 
         <div className="flex flex-col gap-4 overflow-y-auto">
-          {wordsList.map((item) => {
+          {words.map((item) => {
             return (
               <WordCard word={item} key={item.id} />
             )
