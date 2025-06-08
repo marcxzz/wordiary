@@ -12,7 +12,7 @@ body {
 }
 
 .button {
-  @apply  rounded-2xl p-2 cursor-pointer;
+  @apply  rounded-2xl p-2 flex justify-center align-middle gap-2 cursor-pointer;
 }
 
 .button-primary {
@@ -37,4 +37,12 @@ section:last-of-type {
 }
 .h2 {
   @apply text-lg font-medium mb-2;
+}
+
+hr {
+  @apply text-gray-600;
+}
+
+.underline {
+  @apply underline underline-offset-2;
 }

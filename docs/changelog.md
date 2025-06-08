@@ -16,3 +16,4 @@
 + working /add page
 - deleted sample data file
 + real-time search at /words
+~ started working on importing feature
