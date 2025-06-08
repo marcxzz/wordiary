@@ -1,12 +1,10 @@
 import WordCard from "@/components/common/WordCard"
 import Flashcard from "@/components/home/Flashcard"
 import { getWords } from "@/data/words"
-// import { dictionaries, wordsList } from "@/utils/data"
 
 export default async function Home() {
-  const words = await getWords()
-  console.log(await words)
-  
+  const words = await getWords('DESC')
+  // console.log(await words)  
 
   return (
     <div>

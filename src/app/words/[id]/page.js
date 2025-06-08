@@ -14,9 +14,7 @@ export default async function WordPage({ params }) {
   return (
     <div>
       <section className="mt-8">
-        <a href={`/words/${word.id}`}>
-          <WordCard word={word} showDate />
-        </a>
+        <WordCard word={word} showDate />
       </section>
     </div>
   )

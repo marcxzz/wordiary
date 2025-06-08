@@ -1,10 +1,12 @@
 # High priority
-- create words page
-- create word details page
+- implement word importing feature
 
 # Medium priority
 - create dictionary page
+- implement words update
+- implement words deletion
 
 # Low priority
-- sort recent words by date
+- add sorting options
 - use search query as URL param
+- improve word details page

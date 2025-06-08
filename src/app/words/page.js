@@ -1,74 +1,12 @@
-'use client'
+import { getWords } from "@/data/words"
+import WordsClient from "@/components/words/WordsClient"
 
-import WordCard from "@/components/common/WordCard"
-import { wordsList } from "@/utils/data"
-import { useState } from "react"
-
-export default function WordsPage() {
-  // console.log(wordsList)
-  
-  const [searchQuery, setSearchQuery] = useState('')
-  const [searchResults, setSearchResults] = useState()
-  const [prevSearchQuery, setPrevSearchQuery] = useState('')
-
-  const search = () => {
-    // console.log(searchQuery)
-    
-    if (searchQuery != '') {
-      const results = wordsList.filter((w) => w.word.includes(searchQuery))
-      // console.log('res: ', results)
-      
-      setPrevSearchQuery(searchQuery)
-      return setSearchResults(results)
-    }
-    setSearchResults()
-  }
-
-  const handleTyping = (str) => {
-    setSearchQuery(str)
-  }
+export default async function WordsPage() {
+  const words = await getWords('DESC')
 
   return (
     <div>
-      <div className="flex pl-4 pr-1 py-1 rounded-2xl dark:bg-gray-700 border border-gray-600 overflow-hidden">
-        <input type="text" placeholder="Search something..." id="searchBar" className="w-full outline-none dark:text-white text-sm" onChange={(e) => handleTyping(e.target.value)} />
-        <button type="submit" className="p-2 rounded-xl hover:bg-gray-600 active:bg-gray-500" onClick={search}>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-5 fill-white">
-            <path fillRule="evenodd" d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.69 4.69a.75.75 0 1 1-1.06 1.06l-4.69-4.69A8.25 8.25 0 0 1 2.25 10.5Z" clipRule="evenodd" />
-          </svg>
-        </button>
-      </div>
-
-      <section className="mt-8">
-        {!searchResults ? (
-          <div className="flex flex-col gap-4">
-            {wordsList.map(item => {
-              return (
-                <a href={`/words/${item.id}`} key={item.id}>
-                  <WordCard word={item} showDate />
-                </a>
-              )
-            })}
-          </div>
-        ) : searchResults.length > 0 ? (
-          <>
-            <h1 className="h1">{searchResults.length} results for &quot;{prevSearchQuery}&quot;</h1>
-            <div className="flex flex-col gap-4">
-              {searchResults.map(item => {
-                return (
-                  <a href={`/words/${item.id}`} key={item.id}>
-                    <WordCard word={item} />
-                  </a>
-                )
-              })}
-            </div>
-          </>
-        ) : (
-          <>
-            <p>No results for &quot;{prevSearchQuery}&quot;</p>
-          </>
-        )}
-      </section>
+      <WordsClient initialWords={words} />
     </div>
   )
 }

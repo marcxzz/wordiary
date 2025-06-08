@@ -1,6 +1,7 @@
 'use client'
 
-import { wordsList } from "@/utils/data"
+import { createWord } from "@/data/words"
+import { redirect } from "next/navigation"
 import { useState } from "react"
 
 export default function AddPage() {
@@ -30,26 +31,36 @@ export default function AddPage() {
     setToLang(toLang)
   }
   
-  const handleBtnClick = () => {
+  const handleBtnClick = async () => {
     if (!(word && translation && fromLang != 'default' && toLang != 'default')) return
     
-    const lastId = Math.max(...wordsList.map(w => w.id))
-    const newWord = {
-      id: lastId + 1,
-      word: word,
-      translation: translation,
-      fromLang: fromLang,
-      toLang: toLang,
-      date: Math.floor(new Date().getTime() / 1000)
+    const res = await createWord({
+      word,
+      translation,
+      fromLang,
+      toLang
+    })
+    
+    if (res) {
+      setWord('')
+      setTranslation('')
+      setFromLang('default')
+      setToLang('default')
+      
+      redirect('/words')
+
+      // return (
+      //   <div id="alert" className="flex items-center p-4 mt-8 text-sm rounded-xl text-emerald-800 bg-emerald-200 border border-emerald-500" role="alert">
+      //     <svg className="shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+      //       <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+      //     </svg>
+      //     <span className="sr-only">Info</span>
+      //     <div>
+      //       <span className="font-medium">Success!</span> Word successfully added.
+      //     </div>
+      //   </div>
+      // )
     }
-    wordsList.push(newWord)
-
-    setWord('')
-    setTranslation('')
-    setFromLang('default')
-    setToLang('default')
-
-    // console.log(wordsList)
   }
 
   return (

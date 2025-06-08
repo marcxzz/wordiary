@@ -11,6 +11,8 @@
 + created word details page
 
 ## 08/06/2025
-~ improved /add page
-+ added data access layer (DAL) for db operations (/data)
-+ implemented home page data fetching from db
++ added data access layer (DAL) for db operations (@/src/data)
++ implemented data fetching from db
++ working /add page
+- deleted sample data file
++ real-time search at /words
