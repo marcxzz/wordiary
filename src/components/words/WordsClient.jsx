@@ -12,12 +12,13 @@ export default function WordsClient({ initialWords }) {
 
   const search = () => {
     // console.log(searchQuery)
+    const query = searchQuery.toLowerCase()
     
-    if (searchQuery.toLowerCase() != '') {
-      const results = words.filter((w) => w.word.toLowerCase().includes(searchQuery))
+    if (query != '') {
+      const results = words.filter((w) => w.word.toLowerCase().includes(query))
       // console.log('res: ', results)
       
-      setPrevSearchQuery(searchQuery)
+      setPrevSearchQuery(query)
       return setSearchResults(results)
     }
     setSearchResults()
