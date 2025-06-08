@@ -1,8 +1,10 @@
 'use client'
 
+import { languageCodes } from "@/utils/language-codes"
 import { useEffect, useState } from "react"
 
 export default function Flashcard({ words }) {
+
   // console.log(words);
   const [randomWord, setRandomWord] = useState('')
   const [prevIndex, setPrevIndex] = useState(-1)
@@ -20,6 +22,8 @@ export default function Flashcard({ words }) {
     return w
   }
   const updateWord = () => setRandomWord(generateWord())
+  const fromLangCode = languageCodes[randomWord.fromLang]
+  const toLangCode = languageCodes[randomWord.toLang]
   
   useEffect(() => {
     updateWord()
@@ -29,7 +33,7 @@ export default function Flashcard({ words }) {
     <div className="card shadow-md shadow-gray-700 cursor-pointer" onClick={updateWord}>
       <h2 className="h2 font-serif italic text-center text-xl!">{randomWord.word}</h2>
       <p className="card-footer normal-case! font-sans text-center text-lg!">{randomWord.translation}</p>
-      <p className="card-footer m-0!">{randomWord.fromLang} → {randomWord.toLang}</p>
+      <p className="card-footer m-0!">{fromLangCode} → {toLangCode}</p>
     </div>
   )
 }

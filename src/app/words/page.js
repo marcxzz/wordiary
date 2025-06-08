@@ -44,7 +44,9 @@ export default function WordsPage() {
           <div className="flex flex-col gap-4">
             {wordsList.map(item => {
               return (
-                <WordCard word={item} key={item.id} showDate />
+                <a href={`/words/${item.id}`} key={item.id}>
+                  <WordCard word={item} showDate />
+                </a>
               )
             })}
           </div>
@@ -54,7 +56,9 @@ export default function WordsPage() {
             <div className="flex flex-col gap-4">
               {searchResults.map(item => {
                 return (
-                  <WordCard word={item} key={item.id} />
+                  <a href={`/words/${item.id}`} key={item.id}>
+                    <WordCard word={item} />
+                  </a>
                 )
               })}
             </div>

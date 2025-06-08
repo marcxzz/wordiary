@@ -35,7 +35,9 @@ export default async function Home() {
         <div className="flex flex-col gap-4 overflow-y-auto">
           {words.map((item) => {
             return (
-              <WordCard word={item} key={item.id} />
+              <a href={`/words/${item.id}`} key={item.id}>
+                <WordCard word={item} />
+              </a>
             )
           })}
         </div>
