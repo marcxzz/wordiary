@@ -6,8 +6,6 @@ export default function Home() {
   return (
     <div>
       <section id="dailyFlashcard">
-        <h1 className="h1">Flashcard</h1>
-
         <Flashcard words={wordsList} />
       </section>
 

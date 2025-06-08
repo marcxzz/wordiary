@@ -11,6 +11,20 @@ body {
   @apply dark:text-gray-400 text-sm font-medium uppercase;
 }
 
+.button {
+  @apply  rounded-2xl p-2 cursor-pointer;
+}
+
+.button-primary {
+  @apply bg-sky-900/75 border border-sky-800;
+}
+.button-primary:hover {
+  @apply bg-sky-900/85;
+}
+.button-primary:active {
+  @apply bg-sky-900/100;
+}
+
 section {
   @apply mb-8;
 }
