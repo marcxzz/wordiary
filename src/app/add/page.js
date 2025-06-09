@@ -1,6 +1,7 @@
 'use client'
 
 import { createWord, importWords } from "@/data/words"
+import Link from "next/link"
 // import { redirect } from "next/navigation"
 import { useState } from "react"
 
@@ -178,7 +179,7 @@ export default function AddPage() {
           </svg>
           <span className="sr-only">Info</span>
           <div>
-            <span className="font-medium">Success!</span> Word successfully added. <a href="/words" className="text-emerald-500 underline">View all your words</a>
+            <span className="font-medium">Success!</span> Word successfully added. <Link href="/words" className="text-emerald-500 underline">View all your words</Link>
           </div>
         </div>
       )}
@@ -226,7 +227,7 @@ export default function AddPage() {
           </svg>
           <span className="sr-only">Info</span>
           <div>
-            <span className="font-medium">Success!</span> Importing successfully executed. <a href="/words" className="text-emerald-500 underline">View all your words</a>
+            <span className="font-medium">Success!</span> Importing successfully executed. <Link href="/words" className="text-emerald-500 underline">View all your words</Link>
           </div>
         </div>
       )}
