@@ -10,7 +10,7 @@ export default async function Home() {
     <div>
       {words && words.length > 0 ? (
         <>
-          <section id="dailyFlashcard">
+          <section id="flashcard">
             <Flashcard words={words} />
           </section>
         

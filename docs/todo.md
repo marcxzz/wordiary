@@ -11,3 +11,5 @@
 - add sorting options
 - use search query as URL param
 - improve word details page
+
+- write README.md
