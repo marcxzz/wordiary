@@ -1,6 +1,6 @@
 'use client'
 
-import { createWord } from "@/data/words"
+import { createWord, importWords } from "@/data/words"
 // import { redirect } from "next/navigation"
 import { useState } from "react"
 
@@ -16,6 +16,7 @@ export default function AddPage() {
   const [importToLang, setImportToLang] = useState('default')
 
   const [showSuccess, setShowSuccess] = useState(false)
+  const [showImportSuccess, setShowImportSuccess] = useState(false)
 
   const handleWordUpdate = (e) => {
     const word = e.target.value
@@ -80,30 +81,25 @@ export default function AddPage() {
   const handleImportBtnClick = async () => {
     // console.log(importLang, importText)
     if (!(importText && importFromLang != 'default' && importToLang != 'default')) return
-    
-    // console.log(convertText())
-    const words = convertText()
 
-    const res = await createWord({
-      word: words[0].word,
-      translation: words[0].translation,
-      from: words[0].fromLang,
-      toLang: words[0].toLang
-    })
-    console.log(res) // returns undefined for who knows what fucking reason
+    
+    const words = convertText()
+    // console.log(words)
+
+    const res = await importWords(words)
+    // console.log(res)
       
     
-    // if (res) {
-    //   setWord('')
-    //   setTranslation('')
-    //   setFromLang('default')
-    //   setToLang('default')
+    if (res) {
+      setImportText('')
+      setImportFromLang('default')
+      setImportToLang('default')
 
-    //   setShowSuccess(true)
-    //   setTimeout(() => {
-    //     setShowSuccess(false)
-    //   }, 5000)
-    // }
+      setShowImportSuccess(true)
+      setTimeout(() => {
+        setShowImportSuccess(false)
+      }, 5000)
+    }
   }
 
   const convertText = () => {
@@ -116,8 +112,8 @@ export default function AddPage() {
       return {
         word: wordPart.trim(),
         translation: translationPart.trim(),
-        fromLang: importFromLang, // o qualunque lingua originale
-        toLang: importToLang,   // o qualunque lingua di destinazione
+        fromLang: importFromLang,
+        toLang: importToLang,
       }
     }).filter(Boolean) // rimuove eventuali null dovuti a righe mal formattate
 
@@ -175,6 +171,18 @@ export default function AddPage() {
         Add new word
       </button>
 
+      {showSuccess && (
+        <div className="flex items-center p-4 mt-8 text-sm rounded-xl text-emerald-800 bg-emerald-200 border border-emerald-500" role="alert">
+          <svg className="shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+          </svg>
+          <span className="sr-only">Info</span>
+          <div>
+            <span className="font-medium">Success!</span> Word successfully added. <a href="/words" className="text-emerald-500 underline">View all your words</a>
+          </div>
+        </div>
+      )}
+
       <hr className="my-12" />
 
       <textarea id="importInput" value={importText || ''} className="bg-gray-700 border border-gray-600 rounded-xl w-full p-2 px-3 text-sm outline-none" onChange={(event) => handleImportedTextTyping(event)}></textarea>
@@ -211,19 +219,17 @@ export default function AddPage() {
         Import
       </button>
 
-
-      {showSuccess && (
+      {showImportSuccess && (
         <div className="flex items-center p-4 mt-8 text-sm rounded-xl text-emerald-800 bg-emerald-200 border border-emerald-500" role="alert">
           <svg className="shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
             <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
           </svg>
           <span className="sr-only">Info</span>
           <div>
-            <span className="font-medium">Success!</span> Word successfully added. <a href="/words" className="text-emerald-500 underline">View all your words</a>
+            <span className="font-medium">Success!</span> Importing successfully executed. <a href="/words" className="text-emerald-500 underline">View all your words</a>
           </div>
         </div>
       )}
-
     </>
   )
 }

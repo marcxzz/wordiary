@@ -1,10 +1,10 @@
 # High priority
-- implement word importing feature
 
 # Medium priority
 - create dictionary page
 - implement words update
 - implement words deletion
+- add types (word, slang, proverb, techical term, )
 
 # Low priority
 - add sorting options

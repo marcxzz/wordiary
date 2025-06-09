@@ -17,3 +17,6 @@
 - deleted sample data file
 + real-time search at /words
 ~ started working on importing feature
+
+## 09-06-2025
++ added fully working importing feature

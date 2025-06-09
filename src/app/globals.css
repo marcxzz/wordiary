@@ -46,3 +46,7 @@ hr {
 .underline {
   @apply underline underline-offset-2;
 }
+
+.link {
+  @apply underline text-sky-800;
+}
