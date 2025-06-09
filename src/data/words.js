@@ -41,7 +41,7 @@ export async function createWord({ word, translation, fromLang, toLang }) {
   try {
     const sql = neon(`${process.env.DATABASE_URL}`)
     const res = await sql.query(`INSERT INTO "tblWords" ("word", "translation", "creationDate", "fromLang", "toLang") VALUES ($1, $2, $3, $4, $5) RETURNING *`, [word, translation, date, fromLang, toLang])
-    console.log('res:', res)
+    console.log(res)
     return res
   } catch (err) {
     console.error(err)
@@ -77,10 +77,10 @@ export async function importWords(words) {
 
   try {
     const res = await sql.query(query, values)
-    console.log('Inserted:', res)
+    console.log(res)
     return res
   } catch (err) {
-    console.error('error:', err)
+    console.error(err)
     return null
   }
 }

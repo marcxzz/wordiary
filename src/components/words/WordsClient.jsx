@@ -15,7 +15,7 @@ export default function WordsClient({ initialWords }) {
     const query = searchQuery.toLowerCase()
     
     if (query != '') {
-      const results = words.filter((w) => w.word.toLowerCase().includes(query))
+      const results = words.filter((w) => w.word.toLowerCase().includes(query) || w.translation.toLowerCase().includes(query))
       // console.log('res: ', results)
       
       setPrevSearchQuery(query)

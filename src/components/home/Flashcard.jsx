@@ -30,7 +30,7 @@ export default function Flashcard({ words }) {
   }, [])
   
   return (
-    <div className="card shadow-md shadow-gray-700 cursor-pointer" onClick={updateWord}>
+    <div className="card cursor-pointer" onClick={updateWord}>
       <h2 className="h2 font-serif italic text-center text-xl!">{randomWord.word}</h2>
       <p className="card-footer normal-case! font-sans text-center text-lg! mb-4">{randomWord.translation}</p>
       <p className="card-footer m-0!">{fromLangCode} → {toLangCode}</p>
