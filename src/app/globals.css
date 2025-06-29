@@ -3,16 +3,31 @@
 body {
   @apply text-left;
 }
+/* #region HELPERS */
+.apply-transition {
+  @apply transition-all duration-200 ease-linear;
+}
 
+.underline {
+  @apply underline underline-offset-2;
+}
+/* #endregion HELPERS */
+
+/* #region CARD */
 .card {
   @apply dark:bg-gray-700 rounded-2xl p-4 border border-gray-600;
 }
 .card-footer {
   @apply dark:text-gray-400 text-sm font-medium uppercase;
 }
+a .card:hover {
+  @apply dark:bg-gray-600 border-gray-500 transition-all duration-200;
+}
+/* #endregion CARD */
 
+/* #region BUTTONS */
 .button {
-  @apply rounded-2xl p-2 flex justify-center align-middle gap-2 cursor-pointer;
+  @apply rounded-2xl p-2 flex justify-center align-middle gap-2 cursor-pointer transition-all duration-200;
 }
 
 .button-outline {
@@ -31,6 +46,7 @@ body {
 .button-primary:active {
   @apply bg-sky-900/100;
 }
+/* #endregion BUTTONS */
 
 section {
   @apply mb-8;
@@ -50,9 +66,6 @@ hr {
   @apply text-gray-600;
 }
 
-.underline {
-  @apply underline underline-offset-2;
-}
 
 .link {
   @apply underline text-sky-800;
