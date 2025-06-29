@@ -5,6 +5,7 @@ import Link from "next/link"
 
 export default async function Home() {
   const words = await getWords('DESC', 10)
+  const flascardWords = await getWords('DESC')
   // console.log(await words)  
 
   return (
@@ -12,7 +13,7 @@ export default async function Home() {
       {words && words.length > 0 ? (
         <>
           <section id="flashcard">
-            <Flashcard words={words} />
+            <Flashcard words={flascardWords} />
           </section>
         
           {/* <section id="yourDictionaries">
