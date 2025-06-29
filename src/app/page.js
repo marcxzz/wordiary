@@ -3,7 +3,7 @@ import Flashcard from "@/components/home/Flashcard"
 import { getWords } from "@/data/words"
 
 export default async function Home() {
-  const words = await getWords('DESC')
+  const words = await getWords('DESC', 10)
   // console.log(await words)  
 
   return (
@@ -40,6 +40,15 @@ export default async function Home() {
                   </a>
                 )
               })}
+              <a href="/words" className="button button-outline">
+                See all words
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5 my-auto">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                </svg>
+                {/* <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5 my-auto">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+                </svg> */}
+              </a>
             </div>
           </section>
         </>

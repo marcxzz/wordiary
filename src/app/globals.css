@@ -12,7 +12,14 @@ body {
 }
 
 .button {
-  @apply  rounded-2xl p-2 flex justify-center align-middle gap-2 cursor-pointer;
+  @apply rounded-2xl p-2 flex justify-center align-middle gap-2 cursor-pointer;
+}
+
+.button-outline {
+  @apply bg-transparent border border-gray-600 text-gray-300;
+}
+.button-outline:hover {
+  @apply bg-gray-700;
 }
 
 .button-primary {
