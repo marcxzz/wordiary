@@ -21,3 +21,7 @@
 ## 09-06-2025
 + added fully working importing feature
 ~ flashcard improvements: added buttons for generating and go to details page
+
+## 30-06-2025
++ implemented word deletion
++ implemented word editing

@@ -1,11 +1,9 @@
 # High priority
 
 # Medium priority
-- create dictionary page
-- implement words update
-- implement words deletion
-- add types (word, slang, proverb, techical term, )
 - import custom font
+- add tags (verb, adjective, slang, proverb, techical term)
+- create dictionary page
 
 # Low priority
 - add sorting options
@@ -13,3 +11,9 @@
 - improve word details page
 
 - write README.md
+
+# Ideas
+- different themes
+- integrate translation API
+- random new word suggestion
+- button to hear pronunciation (text-to-speech)
