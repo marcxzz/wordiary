@@ -1,7 +1,7 @@
 'use client'
 
+import AlertSuccess from "@/components/common/alerts/AlertSuccess"
 import { createWord, importWords } from "@/data/words"
-import Link from "next/link"
 // import { redirect } from "next/navigation"
 import { useState } from "react"
 
@@ -176,15 +176,7 @@ export default function AddPage() {
         </button>
 
         {showSuccess && (
-          <div className="flex items-center p-4 mt-8 text-sm rounded-2xl text-emerald-800 bg-emerald-200 border border-emerald-500" role="alert">
-            <svg className="shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
-            </svg>
-            <span className="sr-only">Info</span>
-            <div>
-              <span className="font-medium">Success!</span> Word successfully added. <Link href="/words" className="text-emerald-500 underline">View all your words</Link>
-            </div>
-          </div>
+          <AlertSuccess message="Word successfully added." />
         )}
       </section>
 
@@ -229,15 +221,7 @@ export default function AddPage() {
         </button>
 
         {showImportSuccess && (
-          <div className="flex items-center p-4 mt-8 text-sm rounded-2xl text-emerald-800 bg-emerald-200 border border-emerald-500" role="alert">
-            <svg className="shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
-            </svg>
-            <span className="sr-only">Info</span>
-            <div>
-              <span className="font-medium">Success!</span> Importing successfully executed. <Link href="/words" className="text-emerald-500 underline">View all your words</Link>
-            </div>
-          </div>
+          <AlertSuccess message="Importing successfully executed." />
         )}
       </section>
     </>

@@ -3,12 +3,12 @@
 import { deleteWord } from "@/data/words"
 import { redirect } from "next/navigation"
 import { useState } from "react"
+import AlertDanger from "../common/alerts/AlertDanger"
 
 export default function CardButtons({ id }) {
   const [showAlert, setShowAlert] = useState(false)
 
   const handleDelete = async () => {
-    // event.preventDefault()
     if (window.confirm("Are you sure you want to delete this word? This action cannot be undone.")) {
       const res = await deleteWord(id)
       if (res) {
@@ -41,15 +41,7 @@ export default function CardButtons({ id }) {
       </div>
 
       {showAlert && (
-        <div className="flex items-center p-4 mt-8 text-sm rounded-2xl bg-red-900/25 text-red-400 border border-red-800" role="alert">
-          <svg className="shrink-0 inline w-4 h-4 me-3 my-auto" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
-          </svg>
-          <span className="sr-only">Info</span>
-          <div>
-            <span className="font-medium">Success!</span> Word successfully deleted.
-          </div>
-        </div>
+        <AlertDanger message="Word successfully deleted." />
       )}
     </>
   )
