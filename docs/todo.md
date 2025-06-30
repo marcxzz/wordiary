@@ -1,10 +1,9 @@
 # High priority
 
 # Medium priority
-- implement word editing
-- create dictionary page
-- add tags (word, slang, proverb, techical term, )
 - import custom font
+- add tags (verb, adjective, slang, proverb, techical term)
+- create dictionary page
 
 # Low priority
 - add sorting options

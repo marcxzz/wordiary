@@ -1,6 +1,6 @@
 import Link from "next/link"
 
-export default function AlertSuccess({ message}) {
+export default function AlertSuccess({ message, showLink = true }) {
   return (
     <div className="flex items-center p-4 mt-8 text-sm rounded-2xl text-emerald-400 bg-emerald-900/25 border border-emerald-800" role="alert">
       <svg className="shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
@@ -8,7 +8,7 @@ export default function AlertSuccess({ message}) {
       </svg>
       <span className="sr-only">Info</span>
       <div>
-        <span className="font-medium">Success!</span> {message} <Link href="/words" className="text-emerald-200 underline">View all your words</Link>
+        <span className="font-medium">Success!</span> {message} {showLink && <Link href="/words" className="text-emerald-200 underline">View all your words</Link>}
       </div>
     </div>
   )

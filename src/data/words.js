@@ -85,7 +85,19 @@ export async function importWords(words) {
   }
 }
 
-// export async function updateWord() {}
+export async function updateWord(id, word, translation, fromLang, toLang) {
+  if (!id || !word || !translation || !fromLang || !toLang) return
+
+  try {
+    const sql = neon(process.env.DATABASE_URL)
+    const res = await sql.query(`UPDATE "tblWords" SET "word" = $1, "translation" = $2, "fromLang" = $3, "toLang" = $4 WHERE id = $5 RETURNING *`, [word, translation, fromLang, toLang, id])
+    console.log(res)
+    return res
+  } catch (err) {
+    console.error(err)
+    return null
+  }  
+}
 
 export async function deleteWord(id) {
   if (!id) return

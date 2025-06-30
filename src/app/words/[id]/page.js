@@ -4,7 +4,7 @@ import { getWord } from "@/data/words"
 import { notFound } from "next/navigation"
 
 export default async function WordPage({ params }) {
-  const id = params.id
+  const id = await params.id
   const result = await getWord(id)
 
   if (!result || result.length === 0) return notFound()

@@ -24,3 +24,4 @@
 
 ## 30-06-2025
 + implemented word deletion
++ implemented word editing
