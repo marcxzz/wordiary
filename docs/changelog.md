@@ -25,3 +25,4 @@
 ## 30-06-2025
 + implemented word deletion
 + implemented word editing
++ added custom 404 page
