@@ -87,4 +87,16 @@ export async function importWords(words) {
 
 // export async function updateWord() {}
 
-// export async function deleteWord() {}
+export async function deleteWord(id) {
+  if (!id) return
+
+  try {
+    const sql = neon(process.env.DATABASE_URL)
+    const res = await sql.query(`DELETE FROM "tblWords" WHERE id = $1`, [id])
+    console.log(res)
+    return res
+  } catch (err) {
+    console.error(err)
+    return null
+  }
+}
