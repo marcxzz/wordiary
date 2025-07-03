@@ -3,7 +3,7 @@
 import AlertSuccess from "@/components/common/alerts/AlertSuccess"
 import { createWord, importWords } from "@/data/words"
 // import { redirect } from "next/navigation"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export default function AddPage() {
   const [word, setWord] = useState('')
@@ -18,6 +18,20 @@ export default function AddPage() {
 
   const [showSuccess, setShowSuccess] = useState(false)
   const [showImportSuccess, setShowImportSuccess] = useState(false)
+  
+  useEffect(() => {
+    const storedFromLang = localStorage.getItem('defaultFromLanguage') || 'default'
+    const storedToLang = localStorage.getItem('defaultToLanguage') || 'default'
+
+    if (storedFromLang) {
+      setFromLang(storedFromLang)
+      setImportFromLang(storedFromLang)
+    }
+    if (storedToLang) {
+      setToLang(storedToLang)
+      setImportToLang(storedToLang)
+    }
+  }, [])
 
   const handleWordUpdate = (e) => {
     const word = e.target.value

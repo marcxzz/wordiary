@@ -12,7 +12,11 @@
 - create dictionary page
 
 # Ideas
-- settings page (default from/to lang, current theme, app language (not now), etc.)
+x settings page
+  - app language (not now)
+  x default from/to lang
+  - current theme
+  - export words
 - add sorting options at /words
 - use search query as URL param
 - different themes
