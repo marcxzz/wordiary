@@ -2,12 +2,12 @@
 
 import { neon } from '@neondatabase/serverless'
 
-export async function getWords(direction, limit) {
+export async function getWords(direction) {
   if (!direction) direction = 'ASC'
 
   try {
     const sql = neon(process.env.DATABASE_URL)
-    const res = await sql.query(`SELECT * FROM "tblWords" ORDER BY "id" ${direction} ${limit ? `LIMIT ${limit}` : ''}`)
+    const res = await sql.query(`SELECT * FROM "tblWords" ORDER BY "id" ${direction}`)
     console.log(res)
     return res
   } catch (err) {
@@ -29,7 +29,6 @@ export async function getWord(id) {
     return null
   }
 }
-
 
 export async function createWord({ word, translation, fromLang, toLang }) {
   // console.log('DB URL:', process.env.DATABASE_URL)

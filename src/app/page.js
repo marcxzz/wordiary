@@ -4,8 +4,8 @@ import { getWords } from "@/data/words"
 import Link from "next/link"
 
 export default async function Home() {
-  const words = await getWords('DESC', 10) // filter client-side to avoid doubling calls to db
-  const flashcardWords = await getWords('DESC')
+  const words = await getWords('DESC')
+  const lastWords = words.slice(0, 10) // Get the latest 10 words
   // console.log(await words)
 
   return (
@@ -13,7 +13,7 @@ export default async function Home() {
       {words && words.length > 0 ? (
         <>
           <section id="flashcard">
-            <Flashcard words={flashcardWords} />
+            <Flashcard words={words} />
           </section>
         
           {/* <section id="yourDictionaries">
@@ -35,7 +35,7 @@ export default async function Home() {
             <h1 className="h1">Recent words</h1>
 
             <div className="flex flex-col gap-4 overflow-y-auto">
-              {words.map((item) => {
+              {lastWords.map((item) => {
                 return (
                   <a href={`/words/${item.id}`} key={item.id}>
                     <WordCard word={item} />
