@@ -4,16 +4,16 @@ import { getWords } from "@/data/words"
 import Link from "next/link"
 
 export default async function Home() {
-  const words = await getWords('DESC', 10)
-  const flascardWords = await getWords('DESC')
-  // console.log(await words)  
+  const words = await getWords('DESC', 10) // filter client-side to avoid doubling calls to db
+  const flashcardWords = await getWords('DESC')
+  // console.log(await words)
 
   return (
     <div>
       {words && words.length > 0 ? (
         <>
           <section id="flashcard">
-            <Flashcard words={flascardWords} />
+            <Flashcard words={flashcardWords} />
           </section>
         
           {/* <section id="yourDictionaries">

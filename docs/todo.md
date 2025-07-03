@@ -6,10 +6,10 @@
 - create dictionary page
 
 # Low priority
+- format correct date in word card
 - add sorting options
 - use search query as URL param
 - improve word details page
-
 - write README.md
 
 # Ideas
