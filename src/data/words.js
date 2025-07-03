@@ -7,7 +7,7 @@ export async function getWords(direction, limit) {
 
   try {
     const sql = neon(process.env.DATABASE_URL)
-    const res = await sql.query(`SELECT * FROM "tblWords" ORDER BY "id" ${direction}, "creationDate" ${direction} ${limit ? `LIMIT ${limit}` : ''}`)
+    const res = await sql.query(`SELECT * FROM "tblWords" ORDER BY "id" ${direction} ${limit ? `LIMIT ${limit}` : ''}`)
     console.log(res)
     return res
   } catch (err) {
