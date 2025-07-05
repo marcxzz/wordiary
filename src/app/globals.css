@@ -5,12 +5,16 @@ body {
 }
 
 /* #region HELPERS */
-  .apply-transition {
+  .apply-transition { 
     @apply transition-all duration-200 ease-linear;
   }
 
   .underline {
     @apply underline underline-offset-2;
+  }
+
+  .link {
+    @apply underline text-sky-800;
   }
 /* #endregion HELPERS */
 
@@ -30,7 +34,7 @@ body {
 
 /* #region BUTTONS */
   .button {
-    @apply rounded-2xl p-2 flex justify-center align-middle gap-2 cursor-pointer transition-all duration-200;
+    @apply rounded-2xl p-2 px-4 flex justify-center align-middle gap-2 cursor-pointer transition-all duration-200;
   }
 
   .button-outline {
@@ -44,13 +48,13 @@ body {
   }
 
   .button-primary {
-    @apply bg-sky-900/75 border border-sky-800;
+    @apply bg-sky-900/25 text-sky-500 border border-sky-700;
   }
   .button-primary:hover {
-    @apply bg-sky-900/85;
+    @apply bg-sky-900/35;
   }
   .button-primary:active {
-    @apply bg-sky-900/100;
+    @apply bg-sky-900/50 text-sky-300;
   }
 
   .button-danger {
@@ -80,9 +84,4 @@ section:last-of-type {
 
 hr {
   @apply text-gray-600;
-}
-
-
-.link {
-  @apply underline text-sky-800;
 }

@@ -2,18 +2,25 @@
 
 # Medium priority
 - import custom font
-- add tags (verb, adjective, slang, proverb, techical term)
-- create dictionary page
+- expand translation lenght to 100 (?)
+- add tags (verb, adjective, slang, proverb, techical term) -> 2 more tables (N:N)
 
 # Low priority
-- format correct date in word card
-- add sorting options
-- use search query as URL param
-- improve word details page
 - write README.md
+- improve word details page
+- format correct date in word card (wtf)
+- create dictionary page
 
 # Ideas
+x settings page
+  - app language (not now)
+  x default from/to lang
+  - current theme
+  - export words
+- add sorting options at /words
+- use search query as URL param
 - different themes
+- favorites list (new db field)
+- button to hear pronunciation (text-to-speech)
 - integrate translation API
 - random new word suggestion
-- button to hear pronunciation (text-to-speech)

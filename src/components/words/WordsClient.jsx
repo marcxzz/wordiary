@@ -61,7 +61,7 @@ export default function WordsClient({ initialWords }) {
               {searchResults.map(item => {
                 return (
                   <a href={`/words/${item.id}`} key={item.id}>
-                    <WordCard word={item} />
+                    <WordCard word={item} showDate />
                   </a>
                 )
               })}

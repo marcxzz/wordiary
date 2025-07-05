@@ -2,13 +2,13 @@
 
 import { neon } from '@neondatabase/serverless'
 
-export async function getWords(direction, limit) {
+export async function getWords(direction) {
   if (!direction) direction = 'ASC'
 
   try {
     const sql = neon(process.env.DATABASE_URL)
-    const res = await sql.query(`SELECT * FROM "tblWords" ORDER BY "id" ${direction} ${limit ? `LIMIT ${limit}` : ''}`)
-    console.log(res)
+    const res = await sql.query(`SELECT * FROM "tblWords" ORDER BY "id" ${direction}`)
+    // console.log(res)
     return res
   } catch (err) {
     console.error(err)
@@ -22,7 +22,7 @@ export async function getWord(id) {
   try {
     const sql = neon(process.env.DATABASE_URL)
     const res = await sql.query(`SELECT * FROM "tblWords" WHERE id = $1`, [id])
-    console.log(res)
+    // console.log(res)
     return res
   } catch (err) {
     console.error(err)
@@ -30,18 +30,16 @@ export async function getWord(id) {
   }
 }
 
-
 export async function createWord({ word, translation, fromLang, toLang }) {
-  // console.log('DB URL:', process.env.DATABASE_URL)
-  // if (!word || !translation || !fromLang || !toLang) return
-    
+  // if (!word || !translation || fromLang == 'default' || toLang == 'default') return
+
   const date = new Date().toISOString().split("T")[0] // Format: YYYY-MM-DD
-  console.log('data:', word, translation, fromLang, toLang, date)
+  // console.log('data:', word, translation, fromLang, toLang, date)
 
   try {
     const sql = neon(`${process.env.DATABASE_URL}`)
     const res = await sql.query(`INSERT INTO "tblWords" ("word", "translation", "creationDate", "fromLang", "toLang") VALUES ($1, $2, $3, $4, $5) RETURNING *`, [word, translation, date, fromLang, toLang])
-    console.log(res)
+    // console.log(res)
     return res
   } catch (err) {
     console.error(err)
@@ -77,7 +75,7 @@ export async function importWords(words) {
 
   try {
     const res = await sql.query(query, values)
-    console.log(res)
+    // console.log(res)
     return res
   } catch (err) {
     console.error(err)
@@ -91,7 +89,7 @@ export async function updateWord(id, word, translation, fromLang, toLang) {
   try {
     const sql = neon(process.env.DATABASE_URL)
     const res = await sql.query(`UPDATE "tblWords" SET "word" = $1, "translation" = $2, "fromLang" = $3, "toLang" = $4 WHERE id = $5 RETURNING *`, [word, translation, fromLang, toLang, id])
-    console.log(res)
+    // console.log(res)
     return res
   } catch (err) {
     console.error(err)
@@ -105,7 +103,7 @@ export async function deleteWord(id) {
   try {
     const sql = neon(process.env.DATABASE_URL)
     const res = await sql.query(`DELETE FROM "tblWords" WHERE id = $1`, [id])
-    console.log(res)
+    // console.log(res)
     return res
   } catch (err) {
     console.error(err)
