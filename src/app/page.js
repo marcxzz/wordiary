@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import WordCard from "@/components/common/WordCard"
 import Flashcard from "@/components/home/Flashcard"
 import { getWords } from "@/data/words"
