@@ -66,8 +66,8 @@ export default function AddPage() {
     if (res) {
       setWord('')
       setTranslation('')
-      setFromLang('default')
-      setToLang('default')
+      // setFromLang('default')
+      // setToLang('default')
 
       setShowSuccess(true)
       setTimeout(() => {
@@ -107,8 +107,8 @@ export default function AddPage() {
     
     if (res) {
       setImportText('')
-      setImportFromLang('default')
-      setImportToLang('default')
+      // setImportFromLang('default')
+      // setImportToLang('default')
 
       setShowImportSuccess(true)
       setTimeout(() => {
