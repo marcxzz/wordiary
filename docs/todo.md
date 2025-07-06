@@ -1,8 +1,9 @@
 # High priority
+- add input validation
 
 # Medium priority
 - import custom font
-- expand translation lenght to 100 (?)
+x expand translation lenght to 100 (?)
 - add tags (verb, adjective, slang, proverb, techical term) -> 2 more tables (N:N)
 
 # Low priority

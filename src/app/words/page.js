@@ -1,4 +1,4 @@
-export const dynamic = 'force-dynamic'
+export const dynamic = 'force-dynamic' // disables caching
 
 import { getWords } from "@/data/words"
 import WordsClient from "@/components/words/WordsClient"
