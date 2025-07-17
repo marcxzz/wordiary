@@ -13,8 +13,8 @@ export default async function WordPage({ params }) {
   return (
     <div>
       <section className="mt-8">
-        <WordCard word={word} showDate />
-        
+        <WordCard word={word} showDate truncate={false} />
+
         <CardButtons id={id} />
       </section>
     </div>

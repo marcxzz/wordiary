@@ -1,4 +1,4 @@
-export const dynamic = 'force-dynamic'
+export const dynamic = 'force-dynamic' // disables caching
 
 import WordCard from "@/components/common/WordCard"
 import Flashcard from "@/components/home/Flashcard"

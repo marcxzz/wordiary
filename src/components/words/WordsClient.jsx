@@ -1,6 +1,7 @@
 'use client'
 
 import WordCard from "@/components/common/WordCard"
+import Link from "next/link"
 import { useEffect, useState } from "react"
 
 export default function WordsClient({ initialWords }) {
@@ -70,6 +71,7 @@ export default function WordsClient({ initialWords }) {
         ) : (
           <>
             <h1 className="h1">No results for &quot;{prevSearchQuery}&quot;</h1>
+            <p className="text-gray-400">Can't find the term you are looking for? <Link href="/add" className="text-sky-500 underline">Add it now</Link></p>
           </>
         )}
       </section>
