@@ -10,6 +10,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        {/* <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" /> */}
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" href="/favicon.ico" />
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
+      </head>
       <body className="dark:bg-gray-800 dark:text-white text-center">
         <Header />
         <div className="p-4 max-w-md mx-auto">
