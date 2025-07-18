@@ -3,49 +3,69 @@
 body {
   @apply text-left;
 }
-/* #region HELPERS */
-.apply-transition {
-  @apply transition-all duration-200 ease-linear;
-}
 
-.underline {
-  @apply underline underline-offset-2;
-}
+/* #region HELPERS */
+  .apply-transition { 
+    @apply transition-all duration-200 ease-linear;
+  }
+
+  .underline {
+    @apply underline underline-offset-2;
+  }
+
+  .link {
+    @apply underline text-sky-800;
+  }
 /* #endregion HELPERS */
 
+
 /* #region CARD */
-.card {
-  @apply dark:bg-gray-700 rounded-2xl p-4 border border-gray-600;
-}
-.card-footer {
-  @apply dark:text-gray-400 text-sm font-medium uppercase;
-}
-a .card:hover {
-  @apply dark:bg-gray-600 border-gray-500 transition-all duration-200;
-}
+  .card {
+    @apply dark:bg-gray-700 rounded-2xl p-4 border border-gray-600;
+  }
+  .card-footer {
+    @apply dark:text-gray-400 text-sm font-medium uppercase;
+  }
+  a .card:hover {
+    @apply dark:bg-gray-600 border-gray-500 transition-all duration-200;
+  }
 /* #endregion CARD */
 
+
 /* #region BUTTONS */
-.button {
-  @apply rounded-2xl p-2 flex justify-center align-middle gap-2 cursor-pointer transition-all duration-200;
-}
+  .button {
+    @apply rounded-2xl p-2 px-4 flex justify-center align-middle gap-2 cursor-pointer transition-all duration-200;
+  }
 
-.button-outline {
-  @apply bg-transparent border border-gray-600 text-gray-300;
-}
-.button-outline:hover {
-  @apply bg-gray-700;
-}
+  .button-outline {
+    @apply bg-transparent border border-gray-600 text-gray-300;
+  }
+  .button-outline:hover {
+    @apply bg-gray-700/50;
+  }
+  .button-outline:active {
+    @apply bg-gray-700 text-gray-200;
+  }
 
-.button-primary {
-  @apply bg-sky-900/75 border border-sky-800;
-}
-.button-primary:hover {
-  @apply bg-sky-900/85;
-}
-.button-primary:active {
-  @apply bg-sky-900/100;
-}
+  .button-primary {
+    @apply bg-sky-900/25 text-sky-500 border border-sky-700;
+  }
+  .button-primary:hover {
+    @apply bg-sky-900/35;
+  }
+  .button-primary:active {
+    @apply bg-sky-900/50 text-sky-300;
+  }
+
+  .button-danger {
+    @apply text-red-500 border border-gray-600;
+  }
+  .button-danger:hover {
+    @apply bg-red-900/25 border border-red-800;
+  }
+  .button-danger:active {
+    @apply bg-red-900/50 text-red-400 border border-red-800;
+  }
 /* #endregion BUTTONS */
 
 section {
@@ -64,9 +84,4 @@ section:last-of-type {
 
 hr {
   @apply text-gray-600;
-}
-
-
-.link {
-  @apply underline text-sky-800;
 }
