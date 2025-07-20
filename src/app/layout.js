@@ -18,6 +18,7 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/favicon.ico" />
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
+        <link rel="manifest" href="/site.webmanifest" />
       </head>
       <body className="dark:bg-gray-800 dark:text-white text-center">
         <Header />

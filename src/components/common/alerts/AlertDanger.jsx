@@ -1,4 +1,4 @@
-export default function AlertDanger({ message }) {
+export default function AlertDanger({ message, type = 'success' }) {
   return (
     <div className="flex items-center p-4 mt-8 text-sm rounded-2xl bg-red-900/25 text-red-400 border border-red-800" role="alert">
       <svg className="shrink-0 inline w-4 h-4 me-3 my-auto" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
@@ -6,7 +6,7 @@ export default function AlertDanger({ message }) {
       </svg>
       <span className="sr-only">Info</span>
       <div>
-        <span className="font-medium">Success!</span> {message}
+        <span className="font-medium">{type === 'success' ? 'Success!' : 'Error!'}</span> {message}
       </div>
     </div>
   )

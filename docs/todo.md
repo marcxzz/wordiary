@@ -1,12 +1,16 @@
 # High priority
 - add input validation
+x add authentication
 
 # Medium priority
 - import custom font
-x expand translation lenght to 100 (?)
 - add tags (verb, adjective, slang, proverb, techical term) -> 2 more tables (N:N)
+x expand translation lenght to 100 (?)
 
 # Low priority
+- fix splash screen icon with background
+- create background-less adaptive icon
+
 - write README.md
 - improve word details page
 - format correct date in word card (wtf)
