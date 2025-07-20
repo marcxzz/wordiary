@@ -3,13 +3,13 @@
   "short_name": "Wordiary",
   "icons": [
     {
-      "purpose": "any", 
+      "purpose": "any maskable monochrome", 
       "sizes": "192x192",
       "src": "android-home-192x192.png",
       "type": "image/png"
     },
     {
-      "purpose": "maskable",
+      "purpose": "maskable monochrome",
       "sizes": "512x512",
       "src": "android-splash-512x512.png",
       "type": "image/png"
@@ -18,5 +18,33 @@
   "theme_color": "#101828",
   "background_color": "#1e2939",
   "display": "standalone",
-  "start_url": "/"
+  "start_url": "/",
+  "shortcuts": [
+    {
+      "name": "Add new word",
+      "short_name": "Add",
+      "description": "Add a new word to your diary",
+      "url": "/add",
+      "icons": [
+        {
+          "src": "shortcuts/add.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "See saved words",
+      "short_name": "Words",
+      "description": "See all saved words in your diary",
+      "url": "/words",
+      "icons": [
+        {
+          "src": "shortcuts/words.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
+  ]
 }
