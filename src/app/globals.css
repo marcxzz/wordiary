@@ -2,6 +2,7 @@
 
 body {
   @apply text-left;
+  font-family: var(--font-rubik), sans-serif !important;
 }
 
 /* #region HELPERS */
@@ -15,6 +16,13 @@ body {
 
   .link {
     @apply underline text-sky-800;
+  }
+
+  .font-serif, h1.h1 {
+    font-family: var(--font-fraunces), serif !important;
+  }
+  .font-sans {
+    font-family: var(--font-rubik), sans-serif !important;
   }
 /* #endregion HELPERS */
 
@@ -76,7 +84,7 @@ section:last-of-type {
 }
 
 .h1 {
-  @apply text-xl font-semibold mb-4 font-serif;
+  @apply text-2xl font-semibold mb-4 !font-serif;
 }
 .h2 {
   @apply text-lg font-medium mb-2;
