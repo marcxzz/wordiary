@@ -17,5 +17,13 @@ export function middleware(req) {
 }
 
 export const config = {
-  matcher: ['/', '/dashboard/:path*'], // proteggi tutte le rotte che vuoi
+  matcher: [
+    /*
+     * Protegge tutte le route eccetto:
+     * - /login
+     * - /api/login
+     * - static files (_next, favicon, ecc.)
+     */
+    '/((?!login|api/login|_next/static|_next/image|favicon.ico).*)',
+  ],
 };
