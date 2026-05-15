@@ -23,7 +23,7 @@ export default function Header() {
 						</a>
 					</div>
 				)}
-				Wordiary
+				<span className="font-serif">Wordiary</span>
 				{activePath !== '/login' && (
 					<div className="relative float-right right-0 top-0 my-0.5">
 						<button onClick={logout}>

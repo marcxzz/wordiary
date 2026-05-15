@@ -5,8 +5,9 @@ import { usePathname } from "next/navigation"
 export default function Menu() {
   const activePath = usePathname()
 
-  return (
+  if (activePath !== '/login') return (
     // change fixed to sticky (sticky hides content at the bottom of the page)
+    
     <div className="dark:bg-gray-900 fixed bottom-0 w-full p-4">
       <div className="flex flex-row justify-around mx-auto max-w-md">
         <a href="/">
