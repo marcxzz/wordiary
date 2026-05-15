@@ -1,8 +1,8 @@
-import { languageCodes } from "@/utils/language-codes"
+import { LANGUAGE_CODES } from "@/utils/language-codes"
 
 export default function WordCard({ word, showDate, truncate = true }) {
-  const fromLangCode = languageCodes[word.fromLang]
-  const toLangCode = languageCodes[word.toLang]
+  const fromLangCode = LANGUAGE_CODES[word.fromLang]
+  const toLangCode = LANGUAGE_CODES[word.toLang]
 
   return (
     <div className="card w-full" key={word.creationDate}>

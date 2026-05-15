@@ -1,5 +1,6 @@
 # High priority
 - add input validation
+x add German language
 
 # Medium priority
 - add tags (verb, adjective, slang, proverb, techical term) -> 2 more tables (N:N)
@@ -23,4 +24,4 @@ x settings page
 - favorites list (new db field)
 - button to hear pronunciation (text-to-speech)
 - integrate translation API
-- random new word suggestion
+- random new word suggestion (word of the day)
