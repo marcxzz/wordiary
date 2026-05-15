@@ -1,6 +1,6 @@
 'use client'
 
-import { languageCodes } from "@/utils/language-codes"
+import { LANGUAGE_CODES } from "@/utils/language-codes"
 import { useEffect, useState } from "react"
 
 export default function Flashcard({ words }) {
@@ -22,8 +22,8 @@ export default function Flashcard({ words }) {
     return w
   }
   const updateWord = () => setRandomWord(generateWord())
-  const fromLangCode = languageCodes[randomWord.fromLang]
-  const toLangCode = languageCodes[randomWord.toLang]
+  const fromLangCode = LANGUAGE_CODES[randomWord.fromLang]
+  const toLangCode = LANGUAGE_CODES[randomWord.toLang]
   
   useEffect(() => {
     updateWord()

@@ -77,6 +77,7 @@ export default function EditWord({ fetchedWord, id }) {
             <option value="itIT">IT</option>
             <option value="frFR">FR</option>
             <option value="esES">ES</option>
+            <option value="deDE">DE</option>
           </select>
         </form>
       </div>
@@ -99,6 +100,7 @@ export default function EditWord({ fetchedWord, id }) {
             <option value="itIT">IT</option>
             <option value="frFR">FR</option>
             <option value="esES">ES</option>
+            <option value="deDE">DE</option>
           </select>
         </form>
       </div>
